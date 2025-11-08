@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 export default function Navbar() {
@@ -9,101 +8,31 @@ export default function Navbar() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header
-      style={{
-        backgroundColor: "#ffffff",
-        borderBottom: "1px solid #e2e8f0",
-        position: "sticky",
-        top: 0,
-        zIndex: 1000,
-        boxShadow: "0 2px 6px rgba(0, 0, 0, 0.05)",
-      }}
-    >
-      <nav
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "14px 20px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          position: "relative",
-        }}
-      >
+    <header className="navbar-header">
+      <nav className="navbar-container">
         {/* Logo */}
-        <Link
-          to="/"
-          onClick={closeMenu}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            textDecoration: "none",
-          }}
-        >
-          <img
-            src={logo}
-            alt="Flexdevs Technologies Logo"
-            style={{
-              width: "45px",
-              height: "45px",
-              borderRadius: "8px",
-              objectFit: "contain",
-            }}
-          />
-          <span
-            style={{
-              color: "#1e3a8a",
-              fontSize: "1.1rem",
-              fontWeight: "600",
-            }}
-          >
-            Flexdevs Technologies
-          </span>
-        </Link>
+        <a href="#home" className="navbar-logo" onClick={closeMenu}>
+          <img src={logo} alt="FlexDevs Technologies Logo" className="logo-img" />
+          <span className="logo-text">Flexdevs Technologies</span>
+        </a>
 
-        {/* Hamburger Icon - only on mobile */}
+        {/* Hamburger Button (mobile only) */}
         <button
+          className={`menu-toggle ${menuOpen ? "open" : ""}`}
           onClick={toggleMenu}
-          className="menu-toggle"
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            color: "#1e3a8a",
-            fontSize: "26px",
-            display: "none",
-          }}
+          aria-label="Toggle navigation menu"
         >
           {menuOpen ? "✕" : "☰"}
         </button>
 
         {/* Navbar Links */}
-        <ul
-          className={`nav-links ${menuOpen ? "open" : ""}`}
-          style={{
-            listStyle: "none",
-            display: "flex",
-            gap: "28px",
-            alignItems: "center",
-            margin: 0,
-            padding: 0,
-          }}
-        >
+        <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
           {["Home", "Services", "Portfolio", "About", "Contact"].map((page) => (
             <li key={page}>
               <a
                 href={`#${page.toLowerCase()}`}
                 onClick={closeMenu}
-                style={{
-                  color: "#334155",
-                  textDecoration: "none",
-                  fontWeight: "500",
-                  fontSize: "1rem",
-                  transition: "color 0.2s ease",
-                }}
-                onMouseEnter={(e) => (e.target.style.color = "#2563eb")}
-                onMouseLeave={(e) => (e.target.style.color = "#334155")}
+                className="nav-link"
               >
                 {page}
               </a>
@@ -112,11 +41,78 @@ export default function Navbar() {
         </ul>
       </nav>
 
-      {/* Mobile Styles */}
+      {/* Inline Styles */}
       <style>{`
+        .navbar-header {
+          position: sticky;
+          top: 0;
+          background: #ffffff;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+          z-index: 1000;
+        }
+
+        .navbar-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 14px 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .navbar-logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+        }
+
+        .logo-img {
+          width: 45px;
+          height: 45px;
+          object-fit: contain;
+        }
+
+        .logo-text {
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: #1e3a8a;
+        }
+
+        /* Desktop Navigation */
+        .nav-links {
+          list-style: none;
+          display: flex;
+          gap: 28px;
+          margin: 0;
+          padding: 0;
+        }
+
+        .nav-link {
+          color: #334155;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+          color: #2563eb;
+        }
+
+        /* Hamburger hidden on desktop */
+        .menu-toggle {
+          display: none;
+          background: none;
+          border: none;
+          font-size: 28px;
+          cursor: pointer;
+          color: #1e3a8a;
+        }
+
+        /* ====== MOBILE STYLING ====== */
         @media (max-width: 768px) {
           .menu-toggle {
-            display: block !important;
+            display: block;
           }
 
           .nav-links {
@@ -124,24 +120,31 @@ export default function Navbar() {
             top: 70px;
             left: 0;
             right: 0;
-            background-color: #ffffff;
+            background: #ffffff;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
             padding: 20px 0;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             display: none;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px);
+            transition: all 0.3s ease-in-out;
           }
 
-          .nav-links.open {
+          /* Visible only when active */
+          .nav-links.active {
             display: flex;
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
           }
 
-          /* Hide menu completely by default on mobile */
-          @media (max-width: 768px) {
-            .nav-links {
-              display: none;
-            }
+          .nav-link {
+            font-size: 1.1rem;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
           }
         }
       `}</style>
