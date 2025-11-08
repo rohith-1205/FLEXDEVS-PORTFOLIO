@@ -779,11 +779,20 @@ html {
     display: flex;
   }
 }
-/* Hide circle effect on mobile only */
+.hero-circle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #3b82f6 0%, #1e3a8a 100%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Hide only on mobile */
 @media (max-width: 768px) {
-  .hero-circle,
-  .circle-bg,
-  .hero-effect {
+  .hero-circle {
     display: none !important;
   }
 }
