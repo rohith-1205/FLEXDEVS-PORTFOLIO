@@ -1,3 +1,4 @@
+import "../styles/globals.css";
 import { Helmet } from "react-helmet-async";
 
 export default function About() {
@@ -9,12 +10,11 @@ export default function About() {
 
       <section className="page-hero">
         <h1>
-          We <span>Build Experiences</span>, Not Just Websites
+          We <span>Design Success</span> for Every Business
         </h1>
         <p>
-          Flexdevs Technologies is a modern web solutions studio helping small
-          and medium businesses create high-impact online presences through
-          elegant, fast, and user-focused design.
+          At Flexdevs Technologies, we help small businesses thrive digitally
+          through exceptional frontend design and engineering expertise.
         </p>
       </section>
 
@@ -22,24 +22,24 @@ export default function About() {
         <div className="info-card hover-animate">
           <h3>🌍 Our Vision</h3>
           <p>
-            Empower every growing business with stunning digital experiences
-            that drive visibility, trust, and revenue.
+            To empower every brand — big or small — with a web presence that
+            builds trust, scales effortlessly, and leaves a mark.
           </p>
         </div>
 
         <div className="info-card hover-animate">
-          <h3>💪 Our Strength</h3>
+          <h3>💪 Our Approach</h3>
           <p>
-            We merge creative design and technical precision to produce digital
-            experiences that make brands unforgettable.
+            We merge creativity, performance, and strategy — delivering designs
+            that look great and perform even better.
           </p>
         </div>
 
         <div className="info-card hover-animate">
           <h3>🤝 Our Clients</h3>
           <p>
-            We work with passionate founders, startups, and small enterprises —
-            people who believe in building a strong digital foundation.
+            From local startups to emerging enterprises, we partner with
+            businesses who believe in meaningful design and innovation.
           </p>
         </div>
       </section>

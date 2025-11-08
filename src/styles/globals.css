@@ -693,3 +693,8 @@ img {
   transform: translateY(-8px);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
 }
+.page-hero { background: radial-gradient(circle at top left, #2563eb 0%, #1e3a8a 60%, #111827 100%); color: #fff; text-align: center; padding: 100px 20px 60px; }
+.page-hero h1 span { background: linear-gradient(90deg, #60a5fa, #3b82f6); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; padding: 80px 20px; }
+.info-card { background: #f8fafc; border-radius: 16px; padding: 30px 20px; box-shadow: 0 4px 12px rgba(37,99,235,0.08); transition: transform .3s ease, box-shadow .3s ease; }
+.hover-animate:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(37,99,235,0.15); }
