@@ -49,6 +49,7 @@ export default function Navbar() {
             display: "flex",
             alignItems: "center",
             gap: "10px",
+            textDecoration: "none",
             cursor: "pointer",
           }}
         >
@@ -73,7 +74,7 @@ export default function Navbar() {
           </span>
         </div>
 
-        {/* Hamburger Menu Icon (for Mobile) */}
+        {/* Hamburger Icon (Mobile only) */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="menu-toggle"
@@ -104,15 +105,14 @@ export default function Navbar() {
             <li key={id}>
               <button
                 onClick={() => handleScroll(id)}
-                className="nav-btn"
                 style={{
                   background: "none",
                   border: "none",
-                  color: "#334155",
-                  fontWeight: "500",
                   fontSize: "1rem",
+                  fontWeight: "500",
+                  color: "#334155",
                   cursor: "pointer",
-                  transition: "color 0.2s ease",
+                  transition: "color 0.3s ease",
                 }}
                 onMouseEnter={(e) => (e.target.style.color = "#2563eb")}
                 onMouseLeave={(e) => (e.target.style.color = "#334155")}
@@ -124,7 +124,7 @@ export default function Navbar() {
         </ul>
       </nav>
 
-      {/* Mobile Dropdown Styles */}
+      {/* Mobile Menu Style */}
       <style>{`
         html {
           scroll-behavior: smooth;
@@ -138,7 +138,7 @@ export default function Navbar() {
           .nav-links {
             position: absolute;
             top: 70px;
-            right: 10px;
+            right: 20px;
             background-color: #ffffff;
             flex-direction: column;
             align-items: center;
@@ -148,16 +148,10 @@ export default function Navbar() {
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             display: none;
-            animation: fadeIn 0.3s ease forwards;
           }
 
           .nav-links.open {
             display: flex;
-          }
-
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
           }
         }
       `}</style>
