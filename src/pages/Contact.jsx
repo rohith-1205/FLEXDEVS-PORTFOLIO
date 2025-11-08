@@ -20,16 +20,38 @@ export default function Contact() {
 
       <section className="contact-section">
         <form
-          action="https://formspree.io/f/xyznqabc"
+          action="https://formspree.io/f/xyznqabc" // Replace with your real endpoint if needed
           method="POST"
           className="contact-form hover-animate"
         >
+          {/* Full Name */}
           <label>Full Name</label>
-          <input type="text" name="name" placeholder="Your Name" required />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
 
+          {/* Email */}
           <label>Email</label>
-          <input type="email" name="email" placeholder="you@business.com" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="you@business.com"
+            required
+          />
 
+          {/* ✅ Mobile Number */}
+          <label>Mobile Number</label>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="+91 98765 43210"
+            required
+          />
+
+          {/* Message */}
           <label>Message</label>
           <textarea
             name="message"
@@ -37,6 +59,7 @@ export default function Contact() {
             placeholder="Tell us about your project..."
           ></textarea>
 
+          {/* Submit Button */}
           <button type="submit" className="hero-btn primary">
             Send Message 🚀
           </button>
