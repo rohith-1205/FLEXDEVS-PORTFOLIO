@@ -793,6 +793,6 @@ html {
 @media (max-width: 768px) {
   .hero,
   .page-hero {
-    padding-top: 60px !important; /* reduce from 100px to 60px */
+    padding-top: 10px !important; /* reduce from 100px to 60px */
   }
 }
