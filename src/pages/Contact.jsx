@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact — Flexdevs Technologies</title>
+        <title>Flexdevs Technologies</title>
       </Helmet>
 
       <section className="page-hero">
