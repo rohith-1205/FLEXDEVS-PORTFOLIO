@@ -779,3 +779,11 @@ html {
     display: flex;
   }
 }
+/* Hide circle effect on mobile only */
+@media (max-width: 768px) {
+  .hero-circle,
+  .circle-bg,
+  .hero-effect {
+    display: none !important;
+  }
+}
