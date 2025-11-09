@@ -20,10 +20,17 @@ export default function Contact() {
 
       <section className="contact-section">
         <form
-          action="https://formspree.io/f/xyznqabc" // Replace with your real endpoint if needed
+          action="https://api.web3forms.com/submit"
           method="POST"
           className="contact-form hover-animate"
         >
+          {/* ✅ Web3Forms Access Key */}
+          <input
+            type="hidden"
+            name="access_key"
+            value="61da6a0b-51b9-40c6-8fe7-43808a9002c7"
+          />
+
           {/* Full Name */}
           <label>Full Name</label>
           <input
@@ -42,7 +49,7 @@ export default function Contact() {
             required
           />
 
-          {/* ✅ Mobile Number */}
+          {/* Mobile Number */}
           <label>Mobile Number</label>
           <input
             type="tel"
