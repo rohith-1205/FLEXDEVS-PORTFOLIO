@@ -6,11 +6,17 @@ import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import { Helmet } from "react-helmet-async";
 
 export default function App() {
   return (
     <>
+      <Helmet>
+        <title>Flexdevs Technologies — Frontend Engineering Experts</title>
+      </Helmet>
+
       <Navbar />
+
       <main>
         <section id="home">
           <Home />
@@ -32,6 +38,7 @@ export default function App() {
           <Contact />
         </section>
       </main>
+
       <Footer />
     </>
   );
