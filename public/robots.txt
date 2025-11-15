@@ -4,10 +4,11 @@ Allow: /
 # Sitemap
 Sitemap: https://flexdevstechnologies.com/sitemap.xml
 
-# Block unnecessary files/folders
+# Block unnecessary internal folders (safe)
 Disallow: /node_modules/
 Disallow: /src/
 Disallow: /build/
-Disallow: /public/
+# REMOVE: Disallow: /public/
 Disallow: /package.json
 Disallow: /vercel.json
+
